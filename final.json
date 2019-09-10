@@ -1,0 +1,5 @@
+{"1000" : {"DisputeId": "0001","ProbCases":["C1","C2"],"Probabilities":[0.75,0.63]},
+ "2000" : {"DisputeId": "0002","ProbCases":["C2"],"Probabilities":[0.92]},
+ "3000" : {"DisputeId": "0003","ProbCases":["C3,C5"],"Probabilities":[0.82,0.53]},
+ "4000" : {"DisputeId": "0004","ProbCases":["C4"],"Probabilities":[0.96]},
+ "5000" : {"DisputeId": "0005","ProbCases":["C2,C4"],"Probabilities":[0.80,0.76]}}
