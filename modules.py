@@ -1,8 +1,52 @@
 import re
 import json
 
-final = []
+def levenshtein(s1, s2):
+    if len(s1) < len(s2):
+        return levenshtein(s2, s1)
 
+    # len(s1) >= len(s2)
+    if len(s2) == 0:
+        return len(s1)
+
+    previous_row = range(len(s2) + 1)
+    for i, c1 in enumerate(s1):
+        current_row = [i + 1]
+        for j, c2 in enumerate(s2):
+            insertions = previous_row[j + 1] + 1 # j+1 instead of j since previous_row and current_row are one character longer
+            deletions = current_row[j] + 1       # than s2
+            substitutions = previous_row[j] + (c1 != c2)
+            current_row.append(min(insertions, deletions, substitutions))
+        previous_row = current_row
+    
+    return previous_row[-1]
+
+
+with open('cases.json', 'r') as JSON:
+    caseList = json.load(JSON)
+
+print(json.dumps(caseList))
+probCases = []
+
+f = open("sample-dispute-1.txt", "r")
+f_text = f.read()
+f.close()
+for x in caseList.values():
+    temp = ''
+    for e in x["Keywords"]:
+        temp += str(e) + '|'
+    temp = temp[:len(temp)-1]
+    re_pattern = r'\b(?:{})'.format(temp)
+    match = re.findall(re_pattern, f_text)
+    #match = list(set(match))
+    print(match)
+    print(x["Keywords"])
+    prob = round(len(match)/len(x["Keywords"]),2)
+    probCases.append(prob)
+
+print(probCases)
+
+final = []
 f = open("sample-dispute-1.txt", "r")
 for line in f:
     match = re.findall(r'[\w\.-]+@[\w\.-]+\.\w+', line)
@@ -18,7 +62,6 @@ for e in final:
         customer_email = e
         break
 
-#cList = [["Rohin Satija","rohinsatija2410@gmail.com",4617325565841234,[]],["Siddhartha Khanooja","siddhartha.khanooja@gmail.com",4617325565841235,[[1],[2]]]
 with open('data.json', 'r') as JSON:
     cList = json.load(JSON)
 
