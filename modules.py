@@ -18,14 +18,16 @@ for e in final:
         customer_email = e
         break
 
-customer_email = 'rohinsatija2410@gmail.com'
-cList = [["Rohin Satija","rohinsatija2410@gmail.com",4617325565841234,[]],["Siddhartha Khanooja","siddhartha.khanooja@gmail.com",4617325565841235,[]]]
+#cList = [["Rohin Satija","rohinsatija2410@gmail.com",4617325565841234,[]],["Siddhartha Khanooja","siddhartha.khanooja@gmail.com",4617325565841235,[[1],[2]]]
+with open('data.json', 'r') as JSON:
+    cList = json.load(JSON)
 
-print(json.dumps(cList))
-for x in cList:
-    if x[1] == customer_email:
-        reqd_accno = x[2]
+customer_email = "sarthak@gmail.com"
+for x in cList.values():
+    if x["Email"] == customer_email:
+        reqd_accno = x["AcctNo"]
         break
 
 print(customer_email)
 print(reqd_accno)
+print(json.dumps(cList))
