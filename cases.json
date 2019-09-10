@@ -1,0 +1,5 @@
+{"A" : {"CaseId":"A","Description":"Chargeback","Keywords": ["Chargeback", "Refund","Fraud","merchant"]},
+  "B" : {"CaseId":"B","Description":"Duplicate Payment","Keywords": ["multiple","Duplicate", "Refund","Transaction failed","deducted","deduct"]},
+  "C" : {"CaseId":"C","Description":"Lost&Stolen ","Keywords": ["lost", "stolen","Fraud","block"]},
+  "D" : {"CaseId":"D","Description":"Fradulent Transaction","Keywords": ["Fraud", "Refund","not made by me","demand refund","security","pin"]},
+  "E" : {"CaseId":"E","Description":"ForgotPin","Keywords": ["forgot", "pin","reset","payment"]}}
