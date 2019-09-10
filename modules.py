@@ -38,13 +38,15 @@ for x in caseList.values():
     temp = temp[:len(temp)-1]
     re_pattern = r'\b(?:{})'.format(temp)
     match = re.findall(re_pattern, f_text)
-    #match = list(set(match))
-    print(match)
-    print(x["Keywords"])
     prob = round(len(match)/len(x["Keywords"]),2)
     probCases.append(prob)
 
-print(probCases)
+finalProb = []
+for p in probCases:
+    finalProb.append(round(p/sum(probCases),2))
+
+del probCases
+print(finalProb)
 
 final = []
 f = open("sample-dispute-1.txt", "r")
