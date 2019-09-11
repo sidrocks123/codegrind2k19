@@ -1,0 +1,30 @@
+1st Customer (Case Duplicate Payment )  :  Via Email
+custid: 1001
+Name : Rohin
+email : rohinsatija2410@gmail.com
+Dispute id : 001
+Probable Cases after code run : {"C1","C2"}  ( Let's say C1=Duplicate Payment , C2 = fraudlent transaction ) (C1 & c2 depends upon the probability after code run)
+Probability of c1 = x%
+Probability of c2 = y%
+Proposed Resolution of c1 : ....................
+Proposed Resolution of c2 : ....................
+
+2nd Customer (Case Chargeback )  :  Via Phone Recording
+custid: 1002
+Name : Mark
+email : mark@gmail.com
+Dispute id : 002
+Probable Cases after code run : {"C1","C2"}  ( Let's say C1= Chargeback , C2 = lost&stolen ) (C1 & c2 depends upon the probability after code run)
+Probability of c1 = x%
+Probability of c2 = y%
+Proposed Resolution of c1 : ....................
+Proposed Resolution of c2 : ....................
+
+3rd Customer (Case Forgot Pin)  :  Via Chatot Transcript
+custid: 1003
+Name : Sarthak Gupta
+email : sarthak@gmail.com
+Dispute id : 003
+Probable Cases after code run : {"C1"}  ( C1 = "Forgot Pin")  : 100% probability
+Probability of c1 = 100%
+Proposed Resolution of c1 = Send a reset pin link back to the customer.
