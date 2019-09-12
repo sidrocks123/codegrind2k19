@@ -5,6 +5,8 @@ import SearchResult from './SearchResult'
 import CardGroup from 'react-bootstrap/CardGroup'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import JSONResponseD from './data/data.json'
+import JSONResponseF from './data/final.json'
 
 class HomePage extends Component {
 
@@ -15,29 +17,30 @@ class HomePage extends Component {
     currentDispute: {},
     custList: {},
   }
+  //temp = {
+  // "1000" : {"CName":"Rohin Satija","Email":"rohinsatija2410@gmail.com","Custid":1000 , "AcctNo": 4617325565841234, "DisputeId": ["0001", "0005"]},
+  // "2000" : {"CName":"Aprysta","Email":"apry@gmail.com","Custid":2000 , "AcctNo": 4617325565845634, "DisputeId": ["0002"]},
+  // "3000" : {"CName":"Khanooja"," Email":"khanu@gmail.com","Custid":3000 , "AcctNo": 4617325565846534 , "DisputeId": ["0003"]},
+  // "4000" : {"CName":"sarthak","Email":"sarthak@gmail.com","Custid":4000 , "AcctNo": 4617325565845462, "DisputeId": ["0004"]},
+  // "5000" : {"CName":"Divisha","Email":"divu@gmail.com","Custid":5000 , "AcctNo": 4617325565846537, "DisputeId": []}
+  //}
+  temp = JSONResponseD;
 
-  temp = {
-   "1000" : {"CName":"Rohin Satija","Email":"rohinsatija2410@gmail.com","Custid":1000 , "AcctNo": 4617325565841234, "DisputeId": ["0001", "0006"]},
-   "2000" : {"CName":"Aprysta","Email":"apry@gmail.com","Custid":2000 , "AcctNo": 4617325565845634, "DisputeId": ["0002"]},
-   "3000" : {"CName":"Khanooja","Email":"khanu@gmail.com","Custid":3000 , "AcctNo": 4617325565846534 , "DisputeId": ["0003"]},
-   "4000" : {"CName":"sarthak","Email":"sarthak@gmail.com","Custid":4000 , "AcctNo": 4617325565845462, "DisputeId": ["0004"]},
-   "5000" : {"CName":"Divisha","Email":"divu@gmail.com","Custid":5000 , "AcctNo": 4617325565846537, "DisputeId": []}
-  }
-
- dispListTemp = {
-   "1000" : {"DisputeId": "0001","ProbCases":["Charegeback","Lost&Stolen"],"Probabilities":[0.75,0.63]},
-   "2000" : {"DisputeId": "0002","ProbCases":["Duplicate Payment"],"Probabilities":[0.92]},
-   "3000" : {"DisputeId": "0003","ProbCases":["Fradulent Transaction","ForgotPin"],"Probabilities":[0.82,0.53]},
-   "4000" : {"DisputeId": "0004","ProbCases":["Chargeback"],"Probabilities":[0.96]},
-   "5000" : {"DisputeId": "0005","ProbCases":["ForgotPin","Chargeback"],"Probabilities":[0.80,0.76]}
- }
+ //dispListTemp = {
+ //  "1000" : {"DisputeId": "0001","ProbCases":["Chargeback","Lost&Stolen"],"Probabilities":[0.75,0.63]},
+ //  "2000" : {"DisputeId": "0002","ProbCases":["Duplicate Payment"],"Probabilities":[0.92]},
+ //  "3000" : {"DisputeId": "0003","ProbCases":["Fradulent Transaction","ForgotPin"],"Probabilities":[0.82,0.53]},
+ //  "4000" : {"DisputeId": "0004","ProbCases":["Chargeback"],"Probabilities":[0.96]},
+ //  "5000" : {"DisputeId": "0005","ProbCases":["ForgotPin","Chargeback"],"Probabilities":[0.80,0.76]}
+ //}
+ dispListTemp = JSONResponseF;
 
  searchInMainCustList = (event) => {
    return event.target.value === '' ? {} : Object.values(this.temp).filter(cust =>
      cust.CName.includes(event.target.value)
      || cust.Email.includes(event.target.value)
-     || cust.Custid.toString().includes(event.target.value)
-     || cust.DisputeId.includes(event.target.value)
+     || cust.CustID.toString().includes(event.target.value)
+     || cust.DisputeID.includes(event.target.value)
      || cust.AcctNo.toString().includes(event.target.value)
    )
  }
@@ -52,7 +55,7 @@ class HomePage extends Component {
 
   findDispute = (clickedDisputeID) =>{
     return Object.values(this.dispListTemp).filter(dispute => (
-      dispute.DisputeId === clickedDisputeID
+      dispute.DisputeID === clickedDisputeID
     ))
   }
 
@@ -80,7 +83,7 @@ class HomePage extends Component {
         return "Verify the transaction details of the customer for transaction dated 24/10/2019. If duplicate payment found, initiate a refund to the customer."
       case "ForgotPin":
         return "Send the reset pin link to the customer's email address"
-      case "Charegeback":
+      case "Chargeback":
         return "Raise a ticket against merchant and initiate the chargeback."
       case "Lost&Stolen":
         return "Customer's plastic card lost or stolen. Block the existing card. Initiate process for new card."
@@ -101,6 +104,8 @@ class HomePage extends Component {
         caseAndProbArray.push(subArray)
       }
     }
+    console.log(custList);
+    
     return (
       <div>
         <InputGroup className='search-box' size="lg">
@@ -126,10 +131,10 @@ class HomePage extends Component {
 
         <Modal show={isDisputeModalShowing} onHide={this.hideDisputeModal}>
           <Modal.Header closeButton>
-            <Modal.Title>Dispute {currentDispute.DisputeId} Details</Modal.Title>
+            <Modal.Title>Dispute {currentDispute.DisputeID} Details</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <b>Customer ID: </b> {currentCust.Custid}<br/>
+            <b>Customer ID: </b> {currentCust.CustID}<br/>
             <b>Customer Name: </b> {currentCust.CName}<br/><br/>
             <b>Possible Cases: </b>
             {
