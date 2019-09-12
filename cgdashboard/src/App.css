@@ -1,0 +1,29 @@
+html, body, .root {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+}
+body, .app {
+  background: white;
+}
+.list-books-title {
+  padding: 10px 0;
+  background: #b53737;
+  text-align: center;
+}
+.header-text {
+  color: white;
+}
+.search-results {
+  padding: 40px;
+}
+.cust-grid {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
