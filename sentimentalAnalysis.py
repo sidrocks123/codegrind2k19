@@ -11,4 +11,4 @@ sentiment = blob.sentiment
 print(sentiment.polarity)
 #if polarity > 0: positive
 ##<0 : negative
-##kuch nahi bol sakte, ye sirf khanooja ko "pata hai".
+##==0 ,kuch nahi bol sakte, ye sirf khanooja ko "pata hai".
