@@ -8,7 +8,7 @@ class SearchResult extends Component {
   }
 
   render () {
-    const { Custid, CName, AcctNo, DisputeId, Email } = this.props.custList
+    const { CustID, CName, AcctNo, DisputeID, Email } = this.props.custList
     return (
       <div>
         <Card
@@ -18,7 +18,7 @@ class SearchResult extends Component {
           }}
         >
           <Card.Header>
-            Customer ID: {Custid}
+            Customer ID: {CustID}
           </Card.Header>
           <Card.Body>
             <Card.Title>Customer Name: {CName}</Card.Title>
@@ -29,8 +29,8 @@ class SearchResult extends Component {
               Email: {Email}
             </Card.Subtitle>
             {
-              DisputeId &&
-              DisputeId.map((dispute) => {
+              DisputeID &&
+              DisputeID.map((dispute) => {
                 return(
                   <a style={{ cursor: 'pointer' }} onClick={() => this.handleCardClick(dispute)}>
                     <Card.Link href="#">{`${dispute}`}</Card.Link>&nbsp;
