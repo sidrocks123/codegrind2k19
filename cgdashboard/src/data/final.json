@@ -8,7 +8,8 @@
         "ProbCases": [
             "Duplicate Payment",
             "Forgot PIN"
-        ]
+        ],
+        "Polarity": "Negative"
     },
     "3000": {
         "DisputeID": "0003",
@@ -17,6 +18,7 @@
         ],
         "ProbCases": [
             "Duplicate Payment"
-        ]
+        ],
+        "Polarity": "Positive"
     }
 }

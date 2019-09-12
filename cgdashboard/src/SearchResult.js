@@ -14,7 +14,8 @@ class SearchResult extends Component {
         <Card
           border="danger"
           style={{
-            margin: '1%',
+            width: '20rem',
+            height: '15rem',
           }}
         >
           <Card.Header>
