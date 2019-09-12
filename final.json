@@ -1,5 +1,1 @@
-{"1000" : {"DisputeId": "0001","ProbCases":["Chargeback","Duplicate Payment"],"Probabilities":[0.75,0.63]},
- "2000" : {"DisputeId": "0002","ProbCases":["Duplicate Payment"],"Probabilities":[0.92]},
- "3000" : {"DisputeId": "0003","ProbCases":["Lost Or Stolen","Forgot PIN"],"Probabilities":[0.82,0.53]},
- "4000" : {"DisputeId": "0004","ProbCases":["Fradulent Transaction"],"Probabilities":[0.96]},
- "5000" : {"DisputeId": "0005","ProbCases":["Duplicate Payment","Fradulent Transaction"],"Probabilities":[0.80,0.76]}}
+{"1000": {"DisputeId": "0001", "ProbCases": [["Forgot PIN", 0.83], ["Fradulent Transaction", 0.17]]}}
