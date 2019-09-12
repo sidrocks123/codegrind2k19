@@ -1,0 +1,37 @@
+Presentation : 
+
+Rohin : Hi , my name is Rohin and I am here to tell you a sad story.
+
+
+3 days back, I was  booking  a flight through Make My trip.
+**Taking out my Phone*** 
+
+I am at the payment gateway and I don't know how my internet connection had some issue after i entered my OTP.
+I reloaded the page and payment was finally successful.
+I later realised that my money had deducted twice. I need my money back , I wrote a mail which looks like : 
+ 
+ *** Shows the mail(which we took as input ) on screen ******************
+ I haven't got a reply back till now , I wonder what is wrong with my Bank.
+ 
+ 
+ Khanooja comes in : 
+ Khanooja : We all have faced a similar issue like this before , but let's look at how we propose a solution to it.
+ As soon as we receive a mail , we assign a dispute id lets say d001 to the customer naming say Rohin ,( Shows THE dashboard screen for Rohin with dispute id d001).
+ Our basic aim is to first classify this dispute and recognize what exactly the problem is without any human reading the email.
+ We do that by probabilitistic classification of the dispute. We have first trained our model with some cases such as DuplicateTransaction, Fradulent Transaction, Forgot pin,
+ Chargeback etc.  Our model has been trained to identify some keywords and can map it to different cases.
+ So , whenever a new email comes , our model analyses it, assigns a dispute id based to the customer's email-id & acct number , and bases on probabilitistic classification,
+ it assigns highest two cases with probability and their resolution.
+ Explain this specific case of duplicate transaction and show both the transaction screen & dashboard and explain how resolution time decreases.
+ something like this : 
+  Here you can see the dashboard which would be visible to our customer care representative. She can see all the open disputes for the customer,
+ say d001 & d002. When we click on d001 , by our model we classify the this dispute based on probability , the highest probability being DuplicateTransaction.
+ Without minimum manual intervention , without even reading the email , we have classified the problem correctly & can go towards a resolution.
+
+ Similarly , we do for other 2 customers ,
+  
+  Rohin : explains sarthak's issue of forget pin & how we solve it .
+  
+  Rohin : Explains the issue for mark's case.
+  
+  Sarthak explains the technical part of speech to text. 
