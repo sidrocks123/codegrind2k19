@@ -1,5 +1,1 @@
-{"1000" : {"CName":"Rohin Satija","Email":"rohinsatija2410@gmail.com","Custid":1000 , "AcctNo": 4617325565841234, "DisputeId": ["0001", "0006"]},
-  "2000" : {"CName":"Aprysta","Email":"apry@gmail.com","Custid":2000 , "AcctNo": 4617325565845634, "DisputeId": ["0002"]},
-  "3000" : {"CName":"Khanooja","Email":"khanu@gmail.com","Custid":3000 , "AcctNo": 4617325565846534 , "DisputeId": ["0003"]},
-  "4000" : {"CName":"sarthak","Email":"sarthak@gmail.com","Custid":4000 , "AcctNo": 4617325565845462, "DisputeId": ["0004"]},
-  "5000" : {"CName":"Divisha","Email":"divu@gmail.com","Custid":5000 , "AcctNo": 4617325565846537, "DisputeId": []}}
+{"1000": {"CName": "Rohin Satija", "Email": "rohinsatija2410@gmail.com", "CustID": 1000, "AcctNo": 4617325565841234, "DisputeID": []}, "2000": {"CName": "Aprysita", "Email": "aprisyta10@gmail.com", "CustID": 2000, "AcctNo": 4617325565845634, "DisputeID": []}, "3000": {"CName": "Khanooja", "Email": "khanu@gmail.com", "CustID": 3000, "AcctNo": 4617325565846534, "DisputeID": []}, "4000": {"CName": "sarthak", "Email": "sarthak@gmail.com", "CustID": 4000, "AcctNo": 4617325565845462, "DisputeID": []}, "5000": {"CName": "Divisha", "Email": "divu@gmail.com", "CustID": 5000, "AcctNo": 4617325565846537, "DisputeID": []}}
