@@ -1,0 +1,1 @@
+{"2000": {"DisputeID": "0002", "Probabilities": [0.45, 0.3], "ProbCases": ["Duplicate Payment", "Forgot PIN"], "Polarity": "Negative"}, "3000": {"DisputeID": "0003", "Probabilities": [1.0], "ProbCases": ["Duplicate Payment"], "Polarity": "Positive"}, "4000": {"DisputeID": "0004", "Probabilities": [0.75, 0.25], "ProbCases": ["Chargeback", "Forgot PIN"], "Polarity": "Good"}}
