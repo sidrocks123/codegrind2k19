@@ -5,15 +5,13 @@ import editdistance
 import sys
 import speech_recognition as sr
 
-#def speech_module(filename):
- #   r = sr.Recognizer()
-  #  harvard = sr.AudioFile('mark.wav')
-   # with harvard as source:
-        # the below command is for removing the noice , in our scenario , its not working fine.
-        # So we are not using it . We can try more cases with it though
-        # r.adjust_for_ambient_noise(source)
-    #    audio = sr.record(source)
-#sr.recognize_google(audio)
+def speech_module(filename):
+    r = sr.Recognizer()
+    harvard = sr.AudioFile('mark.wav')
+    with harvard as source:
+        audio = r.record(source)
+text = r.recognize_google(audio)
+print(text)
 
 def text_module_main(filename):
 
@@ -77,6 +75,8 @@ def text_module_main(filename):
     f_text = f.read()
     f.close()
     normSum = 0.0
+    flagForOneDisp = False
+    oneDisp = []
     for x in caseList.values():
         temp = ''
         for e in x["Keywords"]:
@@ -85,28 +85,34 @@ def text_module_main(filename):
         re_pattern = r'\b(?:{})'.format(temp)
         match = re.findall(re_pattern, f_text)
         prob = round(len(match)/len(x["Keywords"]),2)
-        probCases.append([x["Description"],prob])
-        normSum += prob
+        if(prob < 0.80):
+            probCases.append([x["Description"],prob])
+            normSum += prob
+        else:
+            oneDisp.append([x["Description"],prob])
+            flagForOneDisp = True
+            break
 
     print(probCases)
-    for p in probCases:
-        p[1] = round(p[1]/normSum,2)
+    if flagForOneDisp == False:
+        for p in probCases:
+            p[1] = round(p[1]/normSum,2)
+        probCases.sort(key = lambda x: x[1], reverse=True)
+        del probCases[2:]
 
-    probCases.sort(key = lambda x: x[1], reverse=True)
-    print(probCases)
-    del probCases[2:]
-    print(probCases)
-    
+    else:
+        probCases = oneDisp
+
     new_final = {}
     new_final[newDisputeID[::-1]] = {"DisputeId": newDisputeID,"ProbCases":probCases}
     print(new_final)
-    with open('final_bkup.json','r') as JSON:
+    with open('final.json','r') as JSON:
         try:
             final = json.load(JSON)
         except:
             final = {}
     final.update(new_final)
-    with open('final_bkup.json','w') as JSON:
+    with open('final.json','w') as JSON:
         json.dump(final, JSON)
     
 
@@ -115,9 +121,7 @@ if __name__ == "__main__":
     flag = sys.argv[1]
     if len(sys.argv) >= 2:
         if filename.endswith('.txt'):
-            #if sys.argv[2] == '--chat':
-                #text_module_chat(filename)
-            if flag == '--email':
+            if flag == '--email' or '--chat':
                 text_module_main(filename)
             else:
                 print("Usage: python modules.py --[chat/email] <filename.txt>")
